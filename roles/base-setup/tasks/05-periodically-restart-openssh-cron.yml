@@ -1,0 +1,12 @@
+---
+- name: Restart OpenSSH service
+  service:
+    name: sshd
+    state: restarted
+  register: restart_result
+
+- name: Notify if OpenSSH service was restarted
+  debug:
+    msg: "OpenSSH service restarted on {{ ansible_hostname }}"
+  when: restart_result.changed
+

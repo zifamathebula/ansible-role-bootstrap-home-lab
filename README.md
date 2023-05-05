@@ -1,4 +1,5 @@
-# ansible-role-setup-home-lab
+# Ansible Role - Home-lab Setup
+
 An Ansible role for bootstrapping and securing an Ubuntu server, making it ready for deploying applications using Docker Compose and Kubernetes (k8s) in a home lab environment.
 
 ## Features
@@ -6,10 +7,27 @@ An Ansible role for bootstrapping and securing an Ubuntu server, making it ready
 - Bootstraps a fresh Ubuntu server.
 - Installs the latest updates and upgrades.
 - Applies necessary configurations for securing the server, such as:
-  - Disabling password authentication.
-  - Allowing SSH access only with a key.
-  - Closing off all ports except those explicitly required.
+    - Disabling password authentication.
+    - Allowing SSH access only with a key.
+    - Closing off all ports except those explicitly required.
 - Installs tooling for running deployable apps using Docker Compose and Kubernetes (k8s).
+
+## Requirements
+
+- A fresh Ubuntu server
+- Ansible 2.9 or later
+- Target server must be accessible via SSH
+
+## Role Variables
+
+| Variable name                      | Default value | Description                                                      |
+|------------------------------------|---------------|------------------------------------------------------------------|
+| secure_ubuntu_bootstrap_ssh_key    | None          | The public SSH key to be allowed for authentication (required)   |
+| secure_ubuntu_bootstrap_ports      | [22, 80, 443] | List of ports to allow through the firewall                      |
+
+## Dependencies
+
+None.
 
 ## Usage
 
@@ -22,6 +40,7 @@ To use this Ansible role in your project, include it in your project's `requirem
   roles:
     - secure-ubuntu-bootstrap
 ```
+
 ### Running Independently
 
 To run this Ansible role independently, you can use the following steps:
@@ -39,6 +58,7 @@ To run this Ansible role independently, you can use the following steps:
    ```
    
 3. Create an inventory file named `inventory.ini` with your target server details, for example:
+
 ```ini
 [myserver]
 192.168.1.100 
@@ -47,6 +67,7 @@ ansible_ssh_private_key_file=~/.ssh/id_rsa
 ```
 
 4. Run the Ansible playbook using the provided example-playbook.yml:
+
 ```bash
 ansible-playbook -i inventory.ini example-playbook.yml
 ```
@@ -72,3 +93,9 @@ We greatly appreciate any contributions to this project. Your help and expertise
 4. **Share your experiences**: If you use this Ansible role in your project, share your experiences, challenges, and solutions with the community. Your feedback can provide valuable insights and help others succeed with their projects.
 
 Thank you for considering a contribution to the `ansible-role-setup-home-lab` project!
+
+## Buy Me a Coffee
+
+If you find this script useful and would like to show your appreciation, you can buy me a coffee:
+
+[![Buy Me a Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/zifamathebula)

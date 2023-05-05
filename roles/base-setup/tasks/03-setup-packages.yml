@@ -1,0 +1,8 @@
+---
+- name: Install base packages
+  apt:
+    name: "{{ packages }}"
+    state: present
+  become: yes
+  notify:
+    - Cleanup unnecessary packages and files

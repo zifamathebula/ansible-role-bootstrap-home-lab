@@ -1,0 +1,3 @@
+---
+# Time interval in seconds to restart the OpenSSH service
+restart_interval: 3600

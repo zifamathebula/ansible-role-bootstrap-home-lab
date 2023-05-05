@@ -1,0 +1,32 @@
+# Ansible roles
+roles/*/logs/
+roles/*/templates/.ansible-*
+roles/*/tasks/main.retry
+roles/*/tasks/main.retry_vars
+
+# Ansible playbooks
+*.retry
+
+# Ansible facts cache
+.ansible/
+
+# Ansible cache and lock files
+*.cache
+*.lock
+
+# Ansible local configuration file
+ansible.cfg.local
+
+# Ansible-vault password file
+vault_password_file
+
+# Virtualenv
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# macOS specific files
+.DS_Store
+/.idea/

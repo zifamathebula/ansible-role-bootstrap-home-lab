@@ -1,0 +1,6 @@
+---
+# handlers file for initial-setup
+- name: Cleanup unnecessary packages and files
+  apt:
+    autoclean: yes
+    autoremove: yes
