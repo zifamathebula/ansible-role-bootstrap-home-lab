@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  role_name: base-setup
+  description: Role for performing the base setup of an operating system
+  author: Zifa Mathebula
+  company: Marabele Africa
+  license: MIT
+  min_ansible_version: 2.9
+  dependencies:
+    - role: geerlingguy.ufw
+    - role: geerlingguy.git
+    - role: geerlingguy.docker
+    - role: geerlingguy.pip
+      pip_install_packages:
+          - name: docker
+    - role: geerlingguy.security
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+  tags:
+    - base-setup
+    - devops
+    - security

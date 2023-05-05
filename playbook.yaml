@@ -1,0 +1,17 @@
+---
+- name: Lab01 Setup
+  hosts: lab01
+  become: true
+  vars_files:
+    - vars/base-setup/main.yml
+    - vars/base-setup/secret.yml
+    - vars/security.yml
+  roles:
+    - role: system-updates
+      role_description: "Update the system, upgrade all packages to the latest version, and restart necessary services if required."
+    - role: base-setup
+      role_description: "Performs the base setup of the operating system, including creating the devops group, creating system users, deploying SSH keys, installing base packages, and securing the host."
+    - role: geerlingguy.security
+      role_description: "Provides security hardening measures for Linux-based operating systems."
+
+

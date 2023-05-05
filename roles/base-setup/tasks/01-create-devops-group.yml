@@ -1,0 +1,9 @@
+---
+# tasks file for creating group
+
+- name: Create or update the groups
+  group:
+    name: "{{ item.name }}"
+    state: present
+  with_items: "{{ system_groups }}"
+  become: yes

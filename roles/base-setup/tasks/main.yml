@@ -1,0 +1,15 @@
+---
+- name: Create DevOps group
+  include_tasks: 01-create-devops-group.yml
+
+- name: Create users
+  include_tasks: 02-create-users.yml
+
+- name: Install required system packages
+  include_tasks: 03-setup-packages.yml
+
+- name: Configure firewall
+  include_tasks: 04-configure-firewall.yml
+
+- name: Restart OpenSSH Service Periodically
+  include_tasks: 05-periodically-restart-openssh.yml

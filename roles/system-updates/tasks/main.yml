@@ -1,0 +1,29 @@
+---
+- name: Restart Name Resolution Service
+  systemd:
+    name: systemd-resolved
+    state: restarted
+  notify:
+    - "Restart Docker Service"
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Upgrade all packages to the latest version
+  apt:
+    upgrade: dist
+    autoremove: yes
+  notify:
+    - "Restart Docker Service"
+
+- name: Install the latest packages
+  apt:
+    upgrade: yes
+  notify:
+    - "Restart Docker Service"
+
+- name: Cleanup unnecessary packages and files
+  apt:
+    autoclean: yes
+    autoremove: yes

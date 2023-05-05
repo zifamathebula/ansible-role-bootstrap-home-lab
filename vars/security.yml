@@ -1,0 +1,19 @@
+#Security role
+security_ssh_allowed_users:
+  - "dexter"
+  - "devops_user"
+
+security_ssh_allowed_groups:
+  - "devops"
+
+security_sudoers_passwordless:
+  - "dexter"
+  - "devops_user"
+
+# Autoupdate mail settings used on Debian/Ubuntu only.
+security_autoupdate_reboot: "true"
+security_autoupdate_reboot_time: "03:00"
+security_autoupdate_mail_to: "zifa@mathebulafarm.co.za"
+security_autoupdate_mail_on_error: true
+security_fail2ban_enabled: true
+security_fail2ban_custom_configuration_template: "jail.local.j2"

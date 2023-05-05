@@ -1,0 +1,15 @@
+---
+# vars file for base-setup
+
+packages:
+  - vim
+  - curl
+  - wget
+  - ufw
+  - htop
+  - net-tools
+  - net-tools
+
+system_groups:
+  - name: sudo
+  - name: devops

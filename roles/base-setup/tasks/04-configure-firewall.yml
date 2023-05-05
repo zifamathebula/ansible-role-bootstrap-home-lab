@@ -1,0 +1,23 @@
+---
+- name: Ensure UFW is installed
+  apt:
+    name: ufw
+    state: present
+    update_cache: yes
+
+- name: Reset UFW
+  command: ufw --force reset
+
+- name: Apply host security best practices
+  ufw:
+    logging: "off"
+
+- name: Allow SSH connections
+  ufw:
+    rule: allow
+    port: 22
+    proto: tcp
+
+- name: Enable UFW
+  ufw:
+    state: enabled

@@ -1,0 +1,11 @@
+system_users:
+  - name: "{{ user1_name }}"
+    groups:
+      - sudo
+      - devops
+    ssh_key_path: "{{ user1_ssh_key_path }}"
+  - name: "{{ user2_name }}"
+    groups:
+      - sudo
+      - devops
+    ssh_key_path: "{{ user2_ssh_key_path }}"

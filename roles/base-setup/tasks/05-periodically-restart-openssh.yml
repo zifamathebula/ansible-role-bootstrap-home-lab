@@ -1,0 +1,9 @@
+---
+- name: Schedule periodic OpenSSH restart
+  cron:
+    name: Restart OpenSSH service
+    job: "05-periodically-restart-openssh-cron.yml"
+    minute: "0"
+    hour: "4"
+    user: root
+
